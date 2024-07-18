@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
+
+      .titulo {
+        font-size: 3em;
+        text-align: center;
+        margin-top: 20%;
+        font-family: "Roboto", sans-serif;
+        position: absolute;
+      }
+      body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: Arial, sans-serif;
+        color: white;
+        text-align: center;
+        background: linear-gradient(
+          270deg,
+          #ff0000,
+          #00ff00,
+          #0000ff,
+          #ff00ff,
+          #00ffff,
+          #ffff00
+        );
+        background-size: 1200% 1200%;
+        animation: bgChange 10s ease infinite;
+      }
+
+      @keyframes bgChange {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+      * {
+        padding: 0;
+        margin: 0;
+    }
+    .gif,.gif1, .gif2, .gif3, .gif4 {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+    }
+    .ditto{
+        height: 500px;
+        
+    }
+    </style>
+  </head>
+  <body>
+    
+    <img src="ditto.gif" alt="GIF" class="gif" id="gif" />
+    <img src="ditto.gif" alt="GIF" class="gif1" id="gif1" />
+    <img src="ditto.gif" alt="GIF" class="gif2" id="gif2" />
+    <img src="ditto.gif" alt="GIF" class="gif3" id="gif3" />
+    <img src="ditto.gif" alt="GIF" class="gif4" id="gif4" />
+
+    <script>
+      const gif = document.getElementById("gif");
+      const gif1 = document.getElementById("gif1");
+      const gif2 = document.getElementById("gif2");
+      const gif3 = document.getElementById("gif3");
+      const gif4 = document.getElementById("gif4");
+
+      function getRandomPosition() {
+        const x = Math.floor(Math.random() * window.innerWidth) - 50;
+        const y = Math.floor(Math.random() * window.innerHeight) - 50;
+        return { x, y };
+      }
+
+      function moveGif() {
+        let { x, y } = getRandomPosition();
+        gif.style.left = `${x}px`;
+        gif.style.top = `${y}px`;
+        gif.style.opacity = 1;
+        cambiar_opacidad(() => {
+          gif.style.opacity = 0;
+        }, 2000); // para mostar 2 segundos
+      }
+      function moveGif1() {
+        let { x, y } = getRandomPosition();
+        gif1.style.left = `${x}px`;
+        gif1.style.top = `${y}px`;
+        gif1.style.opacity = 1;
+        cambiar_opacidad(() => {
+          gif1.style.opacity = 0;
+        }, 2000); 
+      }
+      function moveGif2() {
+        const { x, y } = getRandomPosition();
+        gif2.style.left = `${x}px`;
+        gif2.style.top = `${y}px`;
+        gif2.style.opacity = 1;
+        cambiar_opacidad(() => {
+          gif2.style.opacity = 0;
+        }, 2000); 
+      }
+      function moveGif3() {
+        const { x, y } = getRandomPosition();
+        gif3.style.left = `${x}px`;
+        gif3.style.top = `${y}px`;
+        gif3.style.opacity = 1;
+        cambiar_opacidad(() => {
+          gif3.style.opacity = 0;
+        }, 2000); 
+      }
+      function moveGif4() {
+        const { x, y } = getRandomPosition();
+        gif4.style.left = `${x}px`;
+        gif4.style.top = `${y}px`;
+        gif4.style.opacity = 1;
+        cambiar_opacidad(() => {
+          gif4.style.opacity = 0;
+        }, 2000); 
+      }
+      // cambiar de lugar 
+      setInterval(moveGif, 3000); 
+      setInterval(moveGif1, 3000); 
+      setInterval(moveGif2, 3000); 
+      setInterval(moveGif3, 3000); 
+      setInterval(moveGif4, 3000); 
+
+      cambiar_opacidad(() => {
+        // Seleccionar el titulo
+        const titulo = document.querySelector(".titulo");
+        // cambiar a corazon xd
+        titulo.innerHTML = "<3";
+      }, 4000);
+    </script>
+    <h1 class="titulo">Viniste muy linda hoy</h1>
+  </body>
+</html>
